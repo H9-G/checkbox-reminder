@@ -1,0 +1,73 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Check that the tag matches manifest.json
+        run: |
+          manifest_version=$(node -p "require('./manifest.json').version")
+          if [ "$manifest_version" != "${GITHUB_REF_NAME}" ]; then
+            echo "Tag ${GITHUB_REF_NAME} does not match manifest.json version ${manifest_version}" >&2
+            exit 1
+          fi
+
+      - run: npm run build
+      - run: npm test
+
+      - name: Attest the provenance of main.js
+        uses: actions/attest@v4
+        with:
+          subject-path: main.js
+
+      - name: Attest the provenance of manifest.json
+        uses: actions/attest@v4
+        with:
+          subject-path: manifest.json
+
+      - name: Attest the provenance of styles.css
+        uses: actions/attest@v4
+        with:
+          subject-path: styles.css
+
+      - name: Create the GitHub release, or add the files to the one that exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh release view "${GITHUB_REF_NAME}" > /dev/null 2>&1; then
+            gh release upload "${GITHUB_REF_NAME}" main.js manifest.json styles.css --clobber
+          else
+            gh release create "${GITHUB_REF_NAME}" \
+              --title "${GITHUB_REF_NAME}" \
+              --generate-notes \
+              main.js manifest.json styles.css
+          fi
+
+      - name: Write release notes if the release has none
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          body=$(gh release view "${GITHUB_REF_NAME}" --json body -q .body)
+          if [ -z "$body" ]; then
+            notes=$(gh api "repos/${GITHUB_REPOSITORY}/releases/generate-notes" -f tag_name="${GITHUB_REF_NAME}" -q .body)
+            gh release edit "${GITHUB_REF_NAME}" --notes "${notes:-Release ${GITHUB_REF_NAME}}"
+          fi
