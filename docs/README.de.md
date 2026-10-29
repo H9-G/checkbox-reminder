@@ -24,6 +24,10 @@ Setze mit einer Uhr-Schaltfläche, einem Kalender und Uhrzeitmenüs eine Erinner
 - Benachrichtigungen setzen voraus, dass Obsidian läuft. Auf Smartphones und Tablets gibt es keine Systembenachrichtigungen; stattdessen erscheint eine Meldung in Obsidian, solange es geöffnet ist.
 - Wird eine Erinnerung in der Liste oder der Meldung erledigt, wird auch das Kontrollkästchen in der Notiz abgehakt.
 
+## Zugriff auf den Vault
+
+Um deine Erinnerungen zu finden, geht das Plugin die Liste der Notizen im Vault durch und liest die Notizen, die Kontrollkästchen enthalten. Es sucht nur nach Zeilen mit einem Kontrollkästchen und einem ⏰-Datum. Es wird nichts gesendet; alles bleibt auf deinem Gerät.
+
 ## Netzwerknutzung
 
 Keine. Das Plugin arbeitet offline und sammelt keine Daten.

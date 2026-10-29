@@ -24,6 +24,10 @@ Placez un rappel sur n'importe quelle case à cocher grâce à un bouton horloge
 - Les notifications nécessitent qu'Obsidian soit ouvert. Sur téléphone et tablette, il n'y a pas de notification système ; un message s'affiche dans Obsidian tant qu'il est ouvert.
 - Terminer un rappel depuis la liste ou le message coche la case dans la note.
 
+## Accès au coffre
+
+Pour trouver vos rappels, le plugin parcourt la liste des notes du coffre et lit les notes qui contiennent des cases à cocher. Il ne cherche que les lignes avec une case à cocher et une date ⏰. Rien n'est envoyé nulle part ; tout reste sur votre appareil.
+
 ## Utilisation du réseau
 
 Aucune. Le plugin fonctionne hors ligne et ne collecte aucune donnée.

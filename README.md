@@ -24,6 +24,10 @@ Set a reminder on any checkbox with a clock button, a calendar and time menus. G
 - Notifications need Obsidian to be running. On phones and tablets there are no system notifications; a message is shown inside Obsidian while it is open.
 - Finishing a reminder from the list or the message ticks the checkbox in the note.
 
+## Vault access
+
+To find your reminders, the plugin goes through the list of notes in the vault and reads the notes that contain checkboxes. It only looks for lines with a checkbox and a ⏰ date. Nothing is sent anywhere; everything stays on your device.
+
 ## Network use
 
 None. The plugin works offline and collects no data.

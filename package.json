@@ -1,6 +1,6 @@
 {
   "name": "checkbox-reminder",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Obsidian plugin: set reminders on checkboxes, get desktop notifications and see them in a list.",
   "main": "main.js",
   "scripts": {

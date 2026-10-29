@@ -24,6 +24,10 @@ Pon un recordatorio en cualquier casilla con un botón de reloj, un calendario y
 - Las notificaciones necesitan que Obsidian esté abierto. En móviles y tabletas no hay notificaciones del sistema; se muestra un mensaje dentro de Obsidian mientras está abierto.
 - Al terminar un recordatorio desde la lista o el mensaje, se marca la casilla en la nota.
 
+## Acceso a la bóveda
+
+Para encontrar tus recordatorios, el plugin recorre la lista de notas de la bóveda y lee las notas que tienen casillas. Solo busca líneas con una casilla y una fecha con ⏰. No se envía nada a ningún sitio; todo se queda en tu dispositivo.
+
 ## Uso de la red
 
 Ninguno. El plugin funciona sin conexión y no recopila datos.
