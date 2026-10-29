@@ -1,0 +1,104 @@
+.checkbox-reminder-clock {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-right: var(--size-4-1);
+  color: var(--text-faint);
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.checkbox-reminder-clock svg {
+  width: var(--icon-xs);
+  height: var(--icon-xs);
+}
+
+.checkbox-reminder-clock:hover {
+  color: var(--text-accent);
+  opacity: 1;
+}
+
+.checkbox-reminder-clock.is-set {
+  color: var(--text-accent);
+  opacity: 1;
+}
+
+.checkbox-reminder-picker .checkbox-reminder-row {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-2);
+  margin-bottom: var(--size-4-3);
+}
+
+.checkbox-reminder-picker .checkbox-reminder-row label {
+  min-width: 4em;
+}
+
+.checkbox-reminder-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+  margin-bottom: var(--size-4-3);
+}
+
+.checkbox-reminder-error {
+  color: var(--text-error);
+}
+
+.checkbox-reminder-empty {
+  color: var(--text-muted);
+}
+
+.checkbox-reminder-group {
+  margin: var(--size-4-3) 0 var(--size-4-1);
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-semibold);
+  color: var(--text-muted);
+}
+
+.checkbox-reminder-group-overdue {
+  color: var(--text-error);
+}
+
+.checkbox-reminder-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--size-4-2);
+  padding: var(--size-4-1) var(--size-4-2);
+  border-radius: var(--radius-s);
+  cursor: pointer;
+}
+
+.checkbox-reminder-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.checkbox-reminder-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.checkbox-reminder-item-meta {
+  display: flex;
+  gap: var(--size-4-2);
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.checkbox-reminder-item.is-overdue .checkbox-reminder-item-meta {
+  color: var(--text-error);
+}
+
+.checkbox-reminder-due-file {
+  margin-top: var(--size-4-1);
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+
+.checkbox-reminder-row.is-disabled select {
+  opacity: 0.5;
+}
+
+.checkbox-reminder-allday label {
+  min-width: 0;
+}

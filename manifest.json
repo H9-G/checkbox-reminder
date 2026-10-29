@@ -1,0 +1,9 @@
+{
+  "id": "checkbox-reminder",
+  "name": "Checkbox Reminder",
+  "version": "1.0.2",
+  "minAppVersion": "1.13.0",
+  "description": "Set a reminder on any checkbox with a clock button, a calendar and time menus. Get a desktop notification when it is due, and see all reminders by due date in the sidebar.",
+  "author": "H9-",
+  "isDesktopOnly": false
+}
